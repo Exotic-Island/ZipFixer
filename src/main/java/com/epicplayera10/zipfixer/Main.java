@@ -27,6 +27,8 @@ public class Main {
         String inputZip = args[0];
         String outputZip = args[1];
 
+        System.out.println("Fixing zip...");
+
         File file = new File(inputZip);
 
         ZipFile zip = new ZipFile(file);
@@ -38,7 +40,6 @@ public class Main {
 
         while (enumeration.hasMoreElements()) {
             ZipEntry zipEntry = enumeration.nextElement();
-            System.out.println(zipEntry);
 
             zipOut.putNextEntry(new ZipEntry(zipEntry.getName()));
 
@@ -69,5 +70,7 @@ public class Main {
         }
 
         zipOut.close();
+
+        System.out.println("Fixed zip!");
     }
 }
